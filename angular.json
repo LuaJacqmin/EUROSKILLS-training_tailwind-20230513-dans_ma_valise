@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "valie-project"
+    }
+  },
+  "defaultProject": "valie-project",
+  "cli": {
+    "analytics": false
+  }
 }

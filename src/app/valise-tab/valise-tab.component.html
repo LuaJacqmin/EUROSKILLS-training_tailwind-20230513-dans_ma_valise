@@ -1,0 +1,10 @@
+<div [id]="valiseName" [ngClass]="{'ADD CLASS': activeTabName !== valiseName}">
+    <ul id="">
+        <ng-container *ngIf="valiseContent">
+            <li  *ngFor="let item of valiseContent; index as id" [ngClass]="{'ADD CLASS' : item.isInValise, 'ADD CLASS' : !item.isInValise}" (click)="checkItem(id, item.place)">
+                <div class="">{{item.name}}</div>
+                <div class=""><button (click)="deleteItem(id, item.place)">x</button></div>
+            </li>  
+        </ng-container>                    
+    </ul>
+</div>
