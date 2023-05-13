@@ -1,9 +1,9 @@
-<div [id]="valiseName" [ngClass]="{'ADD CLASS': activeTabName !== valiseName}">
-    <ul id="">
+<div [id]="valiseName" [ngClass]="{'hidden': activeTabName !== valiseName}">
+    <ul class="flex flex-col gap-2" id="">
         <ng-container *ngIf="valiseContent">
-            <li  *ngFor="let item of valiseContent; index as id" [ngClass]="{'ADD CLASS' : item.isInValise, 'ADD CLASS' : !item.isInValise}" (click)="checkItem(id, item.place)">
-                <div class="">{{item.name}}</div>
-                <div class=""><button (click)="deleteItem(id, item.place)">x</button></div>
+            <li class="rounded px-3 py-2 flex justify-between items-center cursor-pointer transition-all ease-out duration-200 hover:-translate-y-1" *ngFor="let item of valiseContent; index as id" [ngClass]="{'bg-indigo-800 text-indigo-100' : item.isInValise, 'bg-indigo-100 text-indigo-900' : !item.isInValise}" (click)="checkItem(id, item.place)">
+                <div class="font-serif">{{item.name}}</div>
+                <div class=""><button class="px-4 py-3 flex rounded bg-white text-indigo-900" (click)="deleteItem(id, item.place)">x</button></div>
             </li>  
         </ng-container>                    
     </ul>

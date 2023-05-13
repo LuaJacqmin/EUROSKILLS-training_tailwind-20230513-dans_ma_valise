@@ -142,11 +142,17 @@ export class AppComponent implements OnInit, OnDestroy{
   private getFromLocalStorage(){
     let storedContent = localStorage.getItem('valiseContent')
     if(storedContent && storedContent !== 'undefined'){
+      let i = 0;
+
       this.valiseItems = JSON.parse(storedContent)
-      console.log(this.valiseItems)
-      this.itemNumbers.main = this.valiseItems.main.length;
-      this.itemNumbers.cabine = this.valiseItems.cabine.length;
-      this.itemNumbers.soute = this.valiseItems.soute.length;
+
+      for(let [place, items] of Object.entries(this.valiseItems)){
+        items.forEach(item => {
+          item.isInValise === false && (this.itemNumbers[place]++)
+
+          i++;
+        });
+      }
     }
   }
 
